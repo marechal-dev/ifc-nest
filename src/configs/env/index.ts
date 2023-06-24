@@ -5,7 +5,7 @@ import { z } from 'zod';
 const envSchemaValidator = z.object({
   NODE_ENV: z
     .enum(['development', 'production'] as const)
-    .default('production'),
+    .default('development'),
   PORT: z.coerce.number().default(3000),
 });
 
