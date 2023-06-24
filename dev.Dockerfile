@@ -4,6 +4,8 @@ RUN apk add musl
 
 WORKDIR /usr/app
 
+COPY package-lock.json .
+
 COPY package.json .
 
 RUN npm install
