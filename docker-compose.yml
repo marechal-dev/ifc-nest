@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  my-network:
+    external: true
+
+volumes:
+  mongo_data:
+    driver: local
+
+services:
+  database:
+    image: bitnami/mongodb:5.0.17
+    volumes:
+      - "mongo_data:/bitnami/mongodb"
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_ROOT_PASSWORD=root
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_REPLICA_SET_KEY=replicasetkey
+      - MONGODB_DATABASE=assets
+  
+  app:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/usr/app
+    ports:
+      - 3000:3000
+      - 5555:5555
