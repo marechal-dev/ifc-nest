@@ -19,7 +19,7 @@ export class PrismaOrderMapper {
           raw.asset,
           new UniqueEntityId(ObjectId.createFromHexString(raw.asset.id)),
         ),
-        assetId: new UniqueEntityId(ObjectId.createFromHexString(raw.assetId)),
+        assetId: raw.assetId,
         price: raw.price,
         status: raw.status,
       },
@@ -30,7 +30,7 @@ export class PrismaOrderMapper {
   public static toPrisma(order: Order): RawOrder {
     return {
       id: order.id.toString(),
-      assetId: order.assetId.toString(),
+      assetId: order.assetId,
       price: order.price,
       status: order.status,
     };

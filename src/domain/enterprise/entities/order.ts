@@ -6,7 +6,7 @@ import { OrderStatus } from './enums/order-status';
 import { Asset } from './asset';
 
 interface OrderProps {
-  assetId: UniqueEntityId;
+  assetId: string;
   asset: Asset;
   price: number;
   status: OrderStatus;
@@ -32,7 +32,7 @@ export class Order extends Entity<OrderProps> {
     return this.props.asset;
   }
 
-  public get assetId(): UniqueEntityId {
+  public get assetId(): string {
     return this.props.assetId;
   }
 

@@ -12,8 +12,8 @@ model Order {
   status OrderStatus @default(Open)
   price  Float
 
-  assetId String @map("asset_id") @db.ObjectId
-  asset   Asset  @relation(fields: [assetId], references: [id])
+  assetId String @map("asset_id")
+  asset   Asset  @relation(fields: [assetId], references: [identifier])
 }
 
 enum OrderStatus {

@@ -35,7 +35,7 @@ export class CreateOrderUseCase {
 
     const order = Order.create({
       asset,
-      assetId: new UniqueEntityId(ObjectId.createFromHexString(assetId)),
+      assetId: assetId,
       price,
     });
 
