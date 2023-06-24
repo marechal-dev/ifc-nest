@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { UniqueEntityId } from '@Core/entities/value-objects/unique-entity-id';
-import { ObjectId } from 'bson';
 
 import { Order } from '@Domain/enterprise/entities/order';
 import { ResourceNotFound } from '@Application/errors/resource-not-found';
